@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 /**
 * @description Finds index of book in list
 * @param {Object}   book
@@ -30,11 +32,23 @@ const assignShelf = (target, source) => {
   return (
     target.map(book => ({
         ...book,
-        shelf: (sourceShelves.hasOwnProperty(book.id) ? sourceShelves[book.id] : null)
+        shelf: (sourceShelves.hasOwnProperty(book.id) ? sourceShelves[book.id] : 'none')
       })
     )
   );
 
 }
 
-export { findIndexById, assignShelf };
+/**
+* @description React PropType for book props
+*/
+
+const BookPropType =
+  PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    shelf: PropTypes.string.isRequired,
+    authors: PropTypes.array,
+    imageLinks: PropTypes.object
+  });
+
+export { findIndexById, assignShelf, BookPropType };

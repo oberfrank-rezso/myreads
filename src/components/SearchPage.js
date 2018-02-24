@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { BookPropType } from '../Utils';
+
 import { Link } from 'react-router-dom';
 import Book from './Book';
 
@@ -29,5 +32,11 @@ const SearchPage = (props) => (
       </div>
   </div>
 );
+
+SearchPage.propTypes = {
+  query: PropTypes.string.isRequired,
+  results: PropTypes.arrayOf(BookPropType).isRequired,
+  handleChange: PropTypes.func.isRequired
+};
 
 export default SearchPage;

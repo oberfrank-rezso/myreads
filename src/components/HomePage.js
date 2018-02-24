@@ -1,17 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { BookPropType } from '../Utils';
+
 import { Link } from 'react-router-dom';
 import Bookshelf from './Bookshelf';
 
-const HomePage = (props) => {
+const HomePage = ({ books, handleChange }) => {
 
-  const books = {
+  const filteredBooks = {
     currentlyReading: [],
     wantToRead: [],
     read: []
   };
 
-  props.books.forEach(book => {
-    books[book.shelf].push(book);
+  books.forEach(book => {
+    filteredBooks[book.shelf].push(book);
   });
 
 	return (
@@ -23,18 +26,18 @@ const HomePage = (props) => {
         <div>
         	<Bookshelf
             title='Currently Reading'
-            books={books.currentlyReading}
-            handleChange={props.handleChange}
+            books={filteredBooks.currentlyReading}
+            handleChange={handleChange}
           />
           <Bookshelf
             title='Want to Read'
-            books={books.wantToRead}
-            handleChange={props.handleChange}
+            books={filteredBooks.wantToRead}
+            handleChange={handleChange}
           />
           <Bookshelf
             title='Read'
-            books={books.read}
-            handleChange={props.handleChange}
+            books={filteredBooks.read}
+            handleChange={handleChange}
           />
         </div>
       </div>
@@ -44,5 +47,10 @@ const HomePage = (props) => {
     </div>
   );
 }
+
+HomePage.PropTypes = {
+  books: PropTypes.arrayOf(BookPropType).isRequired,
+  handleChange: PropTypes.func.isRequired
+};
 
 export default HomePage;
