@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import '../styles/App.css';
 
 import * as BooksAPI from '../BooksAPI';
@@ -10,19 +11,11 @@ import HomePage from './HomePage';
 
 class BooksApp extends React.Component {
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-      books: [],
-      results: [],
-      query: ''
-    };
-
-    this.handleSearch = this.handleSearch.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-
-	}
+	state = {
+    books: [],
+    results: [],
+    query: ''
+  };
 
 	componentDidMount() {
 
@@ -33,7 +26,7 @@ class BooksApp extends React.Component {
 
 	}
 
-  handleSearch(query) {
+  handleSearch = (query) => {
 
     // RETURN ON EMPTY QUERY
     if (query === '') {
@@ -57,9 +50,9 @@ class BooksApp extends React.Component {
 
     });
 
-  }
+  };
 
-  handleChange(book, shelf) {
+  handleChange = (book, shelf) => {
 
     // UPDATE SHELF ON SERVER
     BooksAPI.update(book,shelf).then(res => {
@@ -94,7 +87,7 @@ class BooksApp extends React.Component {
 
       });
     });
-  }
+  };
 
 	render() {
 		return (
@@ -118,4 +111,14 @@ class BooksApp extends React.Component {
 	}
 }
 
-export default BooksApp;
+function mapStateToProps(state, props) {
+  return ({
+    hihi: 'hihi'
+  });
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return ({});
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(BooksApp);
