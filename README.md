@@ -1,85 +1,56 @@
 # MyReads Project
 
-A React.js application created for the final assessment project for Udacity's React Fundamentals course.
+A React.js application that allows you to select and categorize books you have read, are currently reading, or want to read. You can search for new books and move your existing ones between your shelves.
 
-## TL;DR
+MyReads was created for the final assessment project for the **Udacity's React Fundamentals** course.
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+## Quickstart
+
+Clone the repository and install project dependecies. Run the development server using `npm start`.
+
+```bash
+$ git clone https://github.com/oberfrank-rezso/reactnd-project-myreads
+$ cd reactnd-project-myreads
+$ npm install
+$ npm start
+```
+
+## Search Terms
+
+The following terms are available after clicking the  **Add button** in the lower left corner:
+
+`Android`, `Art`, `Artificial Intelligence`, `Astronomy`, `Austen`, `Baseball`, `Basketball`, `Bhagat`, `Biography`, `Brief`, `Business`, `Camus`, `Cervantes`, `Christie`, `Classics`, `Comics`, `Cook`, `Cricket`, `Cycling`, `Desai`, `Design`, `Development`, `Digital Marketing`, `Drama`, `Drawing`, `Dumas`, `Education`, `Everything`, `Fantasy`, `Film`, `Finance`, `First`, `Fitness`, `Football`, `Future`, `Games`, `Gandhi`, `Homer`, `Horror`, `Hugo`, `Ibsen`, `Journey`, `Kafka`, `King`, `Lahiri`, `Larsson`, `Learn`, `Literary Fiction`, `Make`, `Manage`, `Marquez`, `Money`, `Mystery`, `Negotiate`, `Painting`, `Philosophy`, `Photography`, `Poetry`, `Production`, `Programming`, `React`, `Redux`, `River`, `Robotics`, `Rowling`, `Satire`, `Science Fiction`, `Shakespeare`, `Singh`, `Swimming`, `Tale`, `Thrun`, `Time`, `Tolstoy`, `Travel`, `Ultimate`, `Virtual Reality`, `Web Development`, `iOS`
 
 ## File Structure
 ```bash
 ├── README.md
-├── SEARCH_TERMS.md
 ├── package.json
 ├── public
-│   ├── favicon.ico
-│   └── index.html
+│ ├── favicon.ico
+│ └── index.html
 └── src
-    ├── components
-    │   ├── App.js
-    │   ├── Book.js
-    │   ├── Bookshelf.js
-    |   ├── HomePage.js
-    │   └── SearchPage.js
-    ├── images
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   ├── arrow-drop-down.svg
-    │   └── cover-unavailable.svg
-    ├── styles
-    │   ├── index.css
-    │   ├── App.css
-    ├── BooksAPI.js
-    └── index.js
+  ├── BooksAPI.js
+  ├── index.js
+  └── components
+    ├── App.js
+    ├── Book.js
+    ├── Bookshelf.js
+    ├── HomePage.js
+    └── SearchPage.js
+  └── images
+    ├── add.svg
+    ├── arrow-back.svg
+    ├── arrow-drop-down.svg
+    └── cover-unavailable.svg
+  └── styles
+    ├── index.css
+    └── App.css
 ```
 
-## Backend Server
+## TODO
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+In the near future, the following features are going to be added to the project:
 
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
-
-### `getAll`
-
-Method Signature:
-
-```js
-getAll()
-```
-
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
-
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf)
-```
-
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query)
-```
-
-* query: `<String>`
-* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
-
-## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+- [ ] error handling
+- [ ] drag'n'drop
+- [ ] tests
