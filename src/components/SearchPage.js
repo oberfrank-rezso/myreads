@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Book from './Book';
 
-const SearchBooks = (props) => (
+const SearchPage = (props) => (
 	<div className="search-books">
       <div className="search-books-bar">
         <Link className="close-search" to="/">Close</Link>
@@ -30,4 +30,4 @@ const SearchBooks = (props) => (
   </div>
 );
 
-export default SearchBooks;
+export default SearchPage;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Bookshelf from './Bookshelf';
 
-const ShowBooks = (props) => {
+const HomePage = (props) => {
 
   const books = {
     currentlyReading: [],
@@ -45,4 +45,4 @@ const ShowBooks = (props) => {
   );
 }
 
-export default ShowBooks;
+export default HomePage;
