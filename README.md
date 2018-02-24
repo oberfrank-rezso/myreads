@@ -1,4 +1,4 @@
-# MyReads Project
+# MyReads: A Book Lending App
 
 A React.js application that allows you to select and categorize books you have read, are currently reading, or want to read. You can search for new books and move your existing ones between your shelves.
 
