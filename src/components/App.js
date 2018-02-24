@@ -66,8 +66,8 @@ class BooksApp extends React.Component {
 
       this.setState( prevState => {
 
-        const bIndex = Utils.indexOfBook(book,prevState.books);
-        const rIndex = Utils.indexOfBook(book,prevState.results);
+        const bIndex = Utils.findIndexById(book,prevState.books);
+        const rIndex = Utils.findIndexById(book,prevState.results);
 
         // REMOVE FROM BOOKS
         if (shelf === 'none') {

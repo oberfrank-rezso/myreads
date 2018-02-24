@@ -6,16 +6,9 @@
 * @returns {number} Index of a book in an array of books or -1 if the book is not in array.
 */
 
-function indexOfBook(book, bookList) {
-
-  for (let i = 0; i < bookList.length; i++) {
-    if (book.id === bookList[i].id) {
-      return i;
-    }
-  }
-  return -1;
-
-}
+const findIndexById = (val, arr) => (
+  arr.findIndex(element => ( element.id === val.id ))
+)
 
 /**
 * @description Assign shelf property to an array of books from an other array of books
@@ -24,26 +17,24 @@ function indexOfBook(book, bookList) {
 * @returns {Object[]} Copy of target with shelf properties from source
 */
 
-function assignShelf(target, source) {
+const assignShelf = (target, source) => {
 
-  let to = [];
+  const sourceShelves =
+    source.reduce((accumulator, newValue) => {
+      return {
+        ...accumulator,
+        [newValue.id]: newValue.shelf
+      }
+    },{});
 
-  for (let i = 0; i < target.length; i++) {
+  return (
+    target.map(book => ({
+        ...book,
+        shelf: (sourceShelves.hasOwnProperty(book.id) ? sourceShelves[book.id] : null)
+      })
+    )
+  );
 
-    const book  = target[i];
-    const index = this.indexOfBook(book, source);
-
-    let updated = JSON.parse(JSON.stringify(target[i]));
-
-    if (index !== -1) {
-      updated.shelf = source[i].shelf;
-    }
-
-    to.push(updated);
-
-  }
-
-  return to;
 }
 
-export { indexOfBook, assignShelf };
+export { findIndexById, assignShelf };
